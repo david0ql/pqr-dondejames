@@ -14,3 +14,8 @@ flutter pub get
 ```
 flutter run
 ```
+
+
+## Developed by
+
+@skrexz and me ^^ 

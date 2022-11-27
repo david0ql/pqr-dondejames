@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pqr_sistema/src/secure/secure_storage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,8 +13,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 2500), () {
-      Navigator.pushReplacementNamed(context, 'login');
+    Future.delayed(const Duration(milliseconds: 2500), () async {
+      (await SecureStorage.read("correo") != "")
+          ? Navigator.pushReplacementNamed(context, 'home')
+          : Navigator.pushReplacementNamed(context, 'login');
     });
   }
 

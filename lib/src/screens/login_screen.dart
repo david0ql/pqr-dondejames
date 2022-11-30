@@ -52,10 +52,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     final httpResponse = await http.get(Uri.parse(
                         "http://127.0.0.1:3000/alumno?correo=${textEditingControllerEmail.text}&clave=${textEditingControllerPwd.text}"));
                     final jsonData = jsonDecode(httpResponse.body);
-
                     if (jsonData.length > 0) {
                       await SecureStorage.write(
                           'correo', jsonData[0]["correo"]);
+                      await SecureStorage.write(
+                          'nombre', jsonData[0]["nombre"]);
                       Navigator.pushReplacementNamed(context, 'home');
                     } else {
                       print("no tiene cuenta");

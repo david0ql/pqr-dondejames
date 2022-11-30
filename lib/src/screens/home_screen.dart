@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pqr_sistema/src/screens/core/core.dart';
 import 'package:pqr_sistema/src/services/bottom_service.dart';
+import 'package:pqr_sistema/src/theme/theme.dart';
 import 'package:pqr_sistema/src/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +11,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Reportar")),
+      backgroundColor: MyTheme.backgroundColor,
+      appBar: AppBar(
+          title: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, 'reportes');
+              },
+              child: const Text("Reportar"))),
       body: const HomeSwitch(),
       bottomNavigationBar: const CustomBottomBar(),
     );
